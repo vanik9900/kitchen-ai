@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Kitchen AI - Intelligent Restaurant Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-robot"></i>
+            <h1>SmartKitchen AI</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="computer-vision.html">Computer Vision</a></li>
+            <li><a href="ai-prediction.html">AI Prediction</a></li>
+            <li><a href="menu-optimization.html">Menu Optimization</a></li>
+            <li><a href="waste-analysis.html">Waste Analysis</a></li>
+            <li><a href="sales-forecasting.html">Sales Forecast</a></li>
+            <li><a href="recipe-recommendations.html">Recipes</a></li>
+            <li id="authLinks">
+                <a href="signin.html">Sign In</a>
+                <a href="signup.html" class="signup-link">Sign Up</a>
+            </li>
+            <li id="profileLink" style="display: none;">
+                <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+            </li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>AI-Powered Kitchen Management</h1>
+            <p>Transform Your Restaurant with Advanced AI Technology</p>
+            <a href="getstarted.html" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <section id="vision" class="features">
+        <h2>Computer Vision for Smart Inventory Management</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <i class="fas fa-camera"></i>
+                <h3>Visual Inventory Tracking</h3>
+                <p>Advanced image recognition to identify and log ingredients using TensorFlow and YOLO.</p>
+                <div class="tech-stack">
+                    <span>TensorFlow</span>
+                    <span>YOLO</span>
+                    <span>OpenCV</span>
+                </div>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Real-Time Stock Detection</h3>
+                <p>Continuous monitoring of ingredient levels through smart camera feeds and AWS Rekognition.</p>
+                <div class="tech-stack">
+                    <span>AWS Rekognition</span>
+                    <span>OpenCV</span>
+                    <span>Real-time Processing</span>
+                </div>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3>Food Spoilage Detection</h3>
+                <p>AI-powered detection of spoiled or near-expiry ingredients using computer vision.</p>
+                <div class="tech-stack">
+                    <span>Computer Vision</span>
+                    <span>ML Models</span>
+                    <span>Image Processing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ai-prediction" class="analytics">
+        <h2>AI-Powered Demand & Waste Prediction</h2>
+        <div class="analytics-grid">
+            <div class="analytics-card">
+                <i class="fas fa-chart-bar"></i>
+                <h3>Sales Forecasting</h3>
+                <p>Predict ingredient consumption using ARIMA, Prophet, and LSTM models.</p>
+                <div class="tech-stack">
+                    <span>ARIMA</span>
+                    <span>Prophet</span>
+                    <span>LSTM</span>
+                </div>
+            </div>
+            <div class="analytics-card">
+                <i class="fas fa-trash-alt"></i>
+                <h3>Waste Prediction</h3>
+                <p>Identify high-risk items prone to spoilage using regression models.</p>
+                <div class="tech-stack">
+                    <span>Regression Models</span>
+                    <span>ML</span>
+                    <span>Data Analysis</span>
+                </div>
+            </div>
+            <div class="analytics-card">
+                <i class="fas fa-sync"></i>
+                <h3>Dynamic Inventory</h3>
+                <p>AI-driven suggestions for optimal stock levels using reinforcement learning.</p>
+                <div class="tech-stack">
+                    <span>Reinforcement Learning</span>
+                    <span>AI</span>
+                    <span>Optimization</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="menu">
+        <h2>Intelligent Menu Optimization</h2>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <i class="fas fa-utensils"></i>
+                <h3>Recipe Recommendations</h3>
+                <p>AI-driven suggestions using surplus or soon-to-expire items.</p>
+                <div class="tech-stack">
+                    <span>OpenAI</span>
+                    <span>Hugging Face</span>
+                    <span>NLP</span>
+                </div>
+            </div>
+            <div class="menu-card">
+                <i class="fas fa-calculator"></i>
+                <h3>Cost Optimization</h3>
+                <p>Real-time dish cost calculation and menu adjustments.</p>
+                <div class="tech-stack">
+                    <span>Linear Optimization</span>
+                    <span>Cost Analysis</span>
+                    <span>AI</span>
+                </div>
+            </div>
+            <div class="menu-card">
+                <i class="fas fa-lightbulb"></i>
+                <h3>Custom Dishes</h3>
+                <p>AI-generated recipes based on available inventory.</p>
+                <div class="tech-stack">
+                    <span>Generative AI</span>
+                    <span>Recipe Generation</span>
+                    <span>NLP</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="waste" class="waste">
+        <h2>Vision-Powered Waste Analysis</h2>
+        <div class="waste-grid">
+            <div class="waste-card">
+                <i class="fas fa-recycle"></i>
+                <h3>Waste Classification</h3>
+                <p>AI-powered categorization of discarded food using U-Net and YOLO.</p>
+                <div class="tech-stack">
+                    <span>U-Net</span>
+                    <span>YOLO</span>
+                    <span>Image Segmentation</span>
+                </div>
+            </div>
+            <div class="waste-card">
+                <i class="fas fa-map"></i>
+                <h3>Waste Heatmap</h3>
+                <p>Visualization of high-waste areas within the kitchen.</p>
+                <div class="tech-stack">
+                    <span>Data Visualization</span>
+                    <span>Heatmap</span>
+                    <span>Analytics</span>
+                </div>
+            </div>
+            <div class="waste-card">
+                <i class="fas fa-chart-pie"></i>
+                <h3>Loss Analysis</h3>
+                <p>Financial impact analysis of waste reduction.</p>
+                <div class="tech-stack">
+                    <span>Financial Analysis</span>
+                    <span>Data Analytics</span>
+                    <span>Reporting</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="demo-section">
+        <h2>Live Demo</h2>
+        <div class="demo-container">
+            <div class="demo-card">
+                <h3>Real-time Inventory Scanner</h3>
+                <div class="camera-feed">
+                    <div class="camera-placeholder">
+                        <i class="fas fa-camera"></i>
+                        <p>Camera Feed Active</p>
+                    </div>
+                </div>
+                <button class="demo-button">Start Scanning</button>
+            </div>
+            <div class="demo-card">
+                <h3>Waste Analysis Dashboard</h3>
+                <div class="dashboard-preview">
+                    <div class="chart-placeholder">
+                        <i class="fas fa-chart-line"></i>
+                        <p>Real-time Analytics</p>
+                    </div>
+                </div>
+                <button class="demo-button">View Dashboard</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@smartkitchenai.com</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 SmartKitchen AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Check if user is logged in
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (currentUser) {
+            document.getElementById('authLinks').style.display = 'none';
+            document.getElementById('profileLink').style.display = 'block';
+        }
+    </script>
+</body>
+</html> 

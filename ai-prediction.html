@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Prediction - Smart Kitchen AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .ai-hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(52, 152, 219, 0.9)),
+                        url('https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 70px;
+        }
+
+        .ai-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+        }
+
+        .prediction-feature {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .prediction-feature:nth-child(even) {
+            direction: rtl;
+        }
+
+        .prediction-feature:nth-child(even) .feature-text {
+            direction: ltr;
+        }
+
+        .feature-text {
+            padding: 1rem;
+        }
+
+        .feature-image {
+            position: relative;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .feature-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .model-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .model-item {
+            background: var(--light-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .model-item i {
+            color: var(--secondary-color);
+        }
+
+        .prediction-demo {
+            background: var(--light-bg);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .prediction-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .prediction-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .prediction-chart {
+            height: 250px;
+            background: var(--light-bg);
+            border-radius: 10px;
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .prediction-chart i {
+            font-size: 3rem;
+            color: var(--secondary-color);
+        }
+
+        .prediction-controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .prediction-button {
+            padding: 0.8rem 1.5rem;
+            background: var(--gradient);
+            color: var(--white);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .prediction-button:hover {
+            transform: translateY(-3px);
+        }
+
+        .prediction-button.secondary {
+            background: var(--light-bg);
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .prediction-feature {
+                grid-template-columns: 1fr;
+            }
+
+            .prediction-feature:nth-child(even) {
+                direction: ltr;
+            }
+
+            .feature-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-robot"></i>
+            <h1>SmartKitchen AI</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="computer-vision.html">Computer Vision</a></li>
+            <li><a href="ai-prediction.html">AI Prediction</a></li>
+            <li><a href="menu-optimization.html">Menu Optimization</a></li>
+            <li><a href="waste-analysis.html">Waste Analysis</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <section class="ai-hero">
+        <div class="hero-content">
+            <h1>AI-Powered Predictions</h1>
+            <p>Smart forecasting for better kitchen management</p>
+        </div>
+    </section>
+
+    <section class="ai-content">
+        <div class="prediction-feature">
+            <div class="feature-text">
+                <h2>Sales Forecasting</h2>
+                <p>Our advanced AI models analyze historical data, seasonal patterns, and market trends to predict future sales with high accuracy. This helps you optimize inventory and staffing levels.</p>
+                <div class="model-details">
+                    <div class="model-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>ARIMA Models</span>
+                    </div>
+                    <div class="model-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Time Series Analysis</span>
+                    </div>
+                    <div class="model-item">
+                        <i class="fas fa-brain"></i>
+                        <span>LSTM Networks</span>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-image">
+                <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Sales Forecasting">
+            </div>
+        </div>
+
+        <div class="prediction-feature">
+            <div class="feature-text">
+                <h2>Waste Prediction</h2>
+                <p>Using machine learning algorithms to identify patterns in food waste and predict potential waste before it happens. This helps reduce costs and improve sustainability.</p>
+                <div class="model-details">
+                    <div class="model-item">
+                        <i class="fas fa-trash-alt"></i>
+                        <span>Regression Models</span>
+                    </div>
+                    <div class="model-item">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Pattern Recognition</span>
+                    </div>
+                    <div class="model-item">
+                        <i class="fas fa-leaf"></i>
+                        <span>Sustainability Metrics</span>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-image">
+                <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Waste Prediction">
+            </div>
+        </div>
+
+        <div class="prediction-feature">
+            <div class="feature-text">
+                <h2>Dynamic Inventory Management</h2>
+                <p>Reinforcement learning algorithms optimize inventory levels based on predicted demand, seasonal factors, and market conditions. This ensures optimal stock levels at all times.</p>
+                <div class="model-details">
+                    <div class="model-item">
+                        <i class="fas fa-robot"></i>
+                        <span>Reinforcement Learning</span>
+                    </div>
+                    <div class="model-item">
+                        <i class="fas fa-box"></i>
+                        <span>Inventory Optimization</span>
+                    </div>
+                    <div class="model-item">
+                        <i class="fas fa-sync"></i>
+                        <span>Real-time Adjustments</span>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-image">
+                <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Dynamic Inventory">
+            </div>
+        </div>
+    </section>
+
+    <section class="prediction-demo">
+        <h2>Prediction Dashboard</h2>
+        <p>Experience our AI prediction capabilities in action</p>
+
+        <div class="prediction-container">
+            <div class="prediction-card">
+                <h3>Sales Forecast</h3>
+                <div class="prediction-chart">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="prediction-controls">
+                    <button class="prediction-button">Generate Forecast</button>
+                    <button class="prediction-button secondary">Reset</button>
+                </div>
+            </div>
+            <div class="prediction-card">
+                <h3>Waste Prediction</h3>
+                <div class="prediction-chart">
+                    <i class="fas fa-chart-pie"></i>
+                </div>
+                <div class="prediction-controls">
+                    <button class="prediction-button">Analyze Waste</button>
+                    <button class="prediction-button secondary">Reset</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@smartkitchenai.com</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 SmartKitchen AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Demo functionality
+        document.querySelectorAll('.prediction-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const card = this.closest('.prediction-card');
+                const chart = card.querySelector('.prediction-chart');
+                const icon = chart.querySelector('i');
+                
+                if (this.textContent === 'Generate Forecast' || this.textContent === 'Analyze Waste') {
+                    icon.className = 'fas fa-spinner fa-spin';
+                    setTimeout(() => {
+                        icon.className = 'fas fa-check-circle';
+                    }, 2000);
+                } else {
+                    icon.className = this.textContent === 'Reset' ? 'fas fa-chart-line' : 'fas fa-chart-pie';
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

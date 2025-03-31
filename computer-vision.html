@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Vision - Smart Kitchen AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .cv-hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(52, 152, 219, 0.9)),
+                        url('https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 70px;
+        }
+
+        .cv-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+        }
+
+        .feature-detail {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .feature-detail:nth-child(even) {
+            direction: rtl;
+        }
+
+        .feature-detail:nth-child(even) .feature-text {
+            direction: ltr;
+        }
+
+        .feature-text {
+            padding: 1rem;
+        }
+
+        .feature-image {
+            position: relative;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .feature-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .tech-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .tech-item {
+            background: var(--light-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tech-item i {
+            color: var(--secondary-color);
+        }
+
+        .demo-section {
+            background: var(--light-bg);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .demo-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .demo-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .demo-feed {
+            height: 250px;
+            background: var(--light-bg);
+            border-radius: 10px;
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .demo-feed i {
+            font-size: 3rem;
+            color: var(--secondary-color);
+        }
+
+        .demo-controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .demo-button {
+            padding: 0.8rem 1.5rem;
+            background: var(--gradient);
+            color: var(--white);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .demo-button:hover {
+            transform: translateY(-3px);
+        }
+
+        .demo-button.secondary {
+            background: var(--light-bg);
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .feature-detail {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-detail:nth-child(even) {
+                direction: ltr;
+            }
+
+            .feature-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-robot"></i>
+            <h1>SmartKitchen AI</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#vision">Computer Vision</a></li>
+            <li><a href="index.html#ai-prediction">AI Prediction</a></li>
+            <li><a href="index.html#menu">Menu Optimization</a></li>
+            <li><a href="index.html#waste">Waste Analysis</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <section class="cv-hero">
+        <div class="hero-content">
+            <h1>Computer Vision Technology</h1>
+            <p>Advanced visual intelligence for your kitchen</p>
+        </div>
+    </section>
+
+    <section class="cv-content">
+        <div class="feature-detail">
+            <div class="feature-text">
+                <h2>Visual Inventory Tracking</h2>
+                <p>Our advanced computer vision system uses state-of-the-art AI models to identify and track ingredients in real-time. The system can recognize thousands of different food items with high accuracy, helping you maintain accurate inventory levels.</p>
+                <div class="tech-details">
+                    <div class="tech-item">
+                        <i class="fas fa-microchip"></i>
+                        <span>TensorFlow & YOLO</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-camera"></i>
+                        <span>High-Resolution Cameras</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-cloud"></i>
+                        <span>Cloud Processing</span>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-image">
+                <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Visual Inventory Tracking">
+            </div>
+        </div>
+
+        <div class="feature-detail">
+            <div class="feature-text">
+                <h2>Real-Time Stock Detection</h2>
+                <p>Continuous monitoring of your kitchen's inventory levels through smart camera feeds. The system automatically alerts you when stock levels are low or when items need to be reordered.</p>
+                <div class="tech-details">
+                    <div class="tech-item">
+                        <i class="fab fa-aws"></i>
+                        <span>AWS Rekognition</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Real-time Processing</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-bell"></i>
+                        <span>Smart Alerts</span>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-image">
+                <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Real-Time Stock Detection">
+            </div>
+        </div>
+
+        <div class="feature-detail">
+            <div class="feature-text">
+                <h2>Food Spoilage Detection</h2>
+                <p>Advanced AI models analyze food quality and detect early signs of spoilage. The system can identify changes in color, texture, and other visual indicators to help prevent food waste.</p>
+                <div class="tech-details">
+                    <div class="tech-item">
+                        <i class="fas fa-brain"></i>
+                        <span>Deep Learning</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-image"></i>
+                        <span>Image Processing</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Quality Analysis</span>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-image">
+                <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Food Spoilage Detection">
+            </div>
+        </div>
+    </section>
+
+    <section class="demo-section">
+        <h2>Live Demo</h2>
+        <p>Experience our computer vision technology in action</p>
+
+        <div class="demo-container">
+            <div class="demo-card">
+                <h3>Inventory Scanner</h3>
+                <div class="demo-feed">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <div class="demo-controls">
+                    <button class="demo-button">Start Scanning</button>
+                    <button class="demo-button secondary">Stop</button>
+                </div>
+            </div>
+            <div class="demo-card">
+                <h3>Quality Analysis</h3>
+                <div class="demo-feed">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="demo-controls">
+                    <button class="demo-button">Analyze Quality</button>
+                    <button class="demo-button secondary">Reset</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@smartkitchenai.com</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 SmartKitchen AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Demo functionality
+        document.querySelectorAll('.demo-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const card = this.closest('.demo-card');
+                const feed = card.querySelector('.demo-feed');
+                const icon = feed.querySelector('i');
+                
+                if (this.textContent === 'Start Scanning' || this.textContent === 'Analyze Quality') {
+                    icon.className = 'fas fa-spinner fa-spin';
+                    setTimeout(() => {
+                        icon.className = 'fas fa-check-circle';
+                    }, 2000);
+                } else {
+                    icon.className = 'fas fa-camera';
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

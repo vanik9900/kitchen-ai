@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Optimization - Smart Kitchen AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .menu-hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(52, 152, 219, 0.9)),
+                        url('https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 70px;
+        }
+
+        .menu-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+        }
+
+        .menu-feature {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .menu-feature:nth-child(even) {
+            direction: rtl;
+        }
+
+        .menu-feature:nth-child(even) .feature-text {
+            direction: ltr;
+        }
+
+        .feature-text {
+            padding: 1rem;
+        }
+
+        .feature-image {
+            position: relative;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .feature-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .tech-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .tech-item {
+            background: var(--light-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tech-item i {
+            color: var(--secondary-color);
+        }
+
+        .menu-demo {
+            background: var(--light-bg);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .menu-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .menu-preview {
+            height: 250px;
+            background: var(--light-bg);
+            border-radius: 10px;
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .menu-preview i {
+            font-size: 3rem;
+            color: var(--secondary-color);
+        }
+
+        .menu-controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .menu-button {
+            padding: 0.8rem 1.5rem;
+            background: var(--gradient);
+            color: var(--white);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-button:hover {
+            transform: translateY(-3px);
+        }
+
+        .menu-button.secondary {
+            background: var(--light-bg);
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .menu-feature {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-feature:nth-child(even) {
+                direction: ltr;
+            }
+
+            .feature-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-robot"></i>
+            <h1>SmartKitchen AI</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="computer-vision.html">Computer Vision</a></li>
+            <li><a href="ai-prediction.html">AI Prediction</a></li>
+            <li><a href="menu-optimization.html">Menu Optimization</a></li>
+            <li><a href="waste-analysis.html">Waste Analysis</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <section class="menu-hero">
+        <div class="hero-content">
+            <h1>Menu Optimization</h1>
+            <p>AI-powered menu planning and optimization</p>
+        </div>
+    </section>
+
+    <section class="menu-content">
+        <div class="menu-feature">
+            <div class="feature-text">
+                <h2>Recipe Recommendations</h2>
+                <p>Our AI system analyzes your inventory and suggests recipes that maximize the use of available ingredients while maintaining quality and customer satisfaction.</p>
+                <div class="tech-details">
+                    <div class="tech-item">
+                        <i class="fas fa-utensils"></i>
+                        <span>OpenAI GPT</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-brain"></i>
+                        <span>NLP Models</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Creative Generation</span>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-image">
+                <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Recipe Recommendations">
+            </div>
+        </div>
+
+        <div class="menu-feature">
+            <div class="feature-text">
+                <h2>Cost Optimization</h2>
+                <p>Advanced algorithms analyze ingredient costs, seasonal availability, and market trends to optimize menu pricing and maximize profitability.</p>
+                <div class="tech-details">
+                    <div class="tech-item">
+                        <i class="fas fa-calculator"></i>
+                        <span>Linear Programming</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Price Analysis</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-coins"></i>
+                        <span>Profit Optimization</span>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-image">
+                <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Cost Optimization">
+            </div>
+        </div>
+
+        <div class="menu-feature">
+            <div class="feature-text">
+                <h2>Custom Dish Creation</h2>
+                <p>Generate unique recipes based on available ingredients, customer preferences, and nutritional requirements using advanced AI models.</p>
+                <div class="tech-details">
+                    <div class="tech-item">
+                        <i class="fas fa-magic"></i>
+                        <span>Generative AI</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-heart"></i>
+                        <span>Preference Learning</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-apple-alt"></i>
+                        <span>Nutrition Analysis</span>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-image">
+                <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Custom Dish Creation">
+            </div>
+        </div>
+    </section>
+
+    <section class="menu-demo">
+        <h2>Menu Optimization Demo</h2>
+        <p>Experience our menu optimization capabilities</p>
+
+        <div class="menu-container">
+            <div class="menu-card">
+                <h3>Recipe Generator</h3>
+                <div class="menu-preview">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <div class="menu-controls">
+                    <button class="menu-button">Generate Recipe</button>
+                    <button class="menu-button secondary">Reset</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <h3>Cost Analysis</h3>
+                <div class="menu-preview">
+                    <i class="fas fa-chart-pie"></i>
+                </div>
+                <div class="menu-controls">
+                    <button class="menu-button">Analyze Costs</button>
+                    <button class="menu-button secondary">Reset</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@smartkitchenai.com</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 SmartKitchen AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Demo functionality
+        document.querySelectorAll('.menu-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const card = this.closest('.menu-card');
+                const preview = card.querySelector('.menu-preview');
+                const icon = preview.querySelector('i');
+                
+                if (this.textContent === 'Generate Recipe' || this.textContent === 'Analyze Costs') {
+                    icon.className = 'fas fa-spinner fa-spin';
+                    setTimeout(() => {
+                        icon.className = 'fas fa-check-circle';
+                    }, 2000);
+                } else {
+                    icon.className = this.textContent === 'Reset' ? 'fas fa-utensils' : 'fas fa-chart-pie';
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

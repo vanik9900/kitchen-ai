@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Forecasting - Smart Kitchen AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .forecast-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .forecast-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .forecast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .forecast-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .forecast-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .chart-container {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .forecast-controls {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .forecast-button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .forecast-button:hover {
+            background: #45a049;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .metric-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        .metric-label {
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        .confidence-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .confidence-bar {
+            height: 8px;
+            background: #ddd;
+            border-radius: 4px;
+            flex-grow: 1;
+        }
+
+        .confidence-fill {
+            height: 100%;
+            background: #4CAF50;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .confidence-value {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-robot"></i>
+            <h1>SmartKitchen AI</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="computer-vision.html">Computer Vision</a></li>
+            <li><a href="ai-prediction.html">AI Prediction</a></li>
+            <li><a href="menu-optimization.html">Menu Optimization</a></li>
+            <li><a href="waste-analysis.html">Waste Analysis</a></li>
+            <li id="authLinks">
+                <a href="signin.html">Sign In</a>
+                <a href="signup.html" class="signup-link">Sign Up</a>
+            </li>
+            <li id="profileLink" style="display: none;">
+                <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+            </li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <section class="forecast-hero">
+        <div class="hero-content">
+            <h1>AI-Powered Sales Forecasting</h1>
+            <p>Predict future sales with advanced machine learning models</p>
+        </div>
+    </section>
+
+    <section class="forecast-content">
+        <div class="metric-grid">
+            <div class="metric-card">
+                <div class="metric-value">92%</div>
+                <div class="metric-label">Prediction Accuracy</div>
+                <div class="confidence-indicator">
+                    <div class="confidence-bar">
+                        <div class="confidence-fill" style="width: 92%"></div>
+                    </div>
+                    <span class="confidence-value">92%</span>
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">7 Days</div>
+                <div class="metric-label">Forecast Horizon</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">24/7</div>
+                <div class="metric-label">Real-time Updates</div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <h2>Sales Forecast</h2>
+            <canvas id="salesChart"></canvas>
+            <div class="forecast-controls">
+                <button class="forecast-button" onclick="updateForecast('week')">Weekly View</button>
+                <button class="forecast-button" onclick="updateForecast('month')">Monthly View</button>
+                <button class="forecast-button" onclick="updateForecast('year')">Yearly View</button>
+            </div>
+        </div>
+
+        <div class="forecast-grid">
+            <div class="forecast-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Historical Analysis</h3>
+                <p>Advanced time series analysis using ARIMA and Prophet models to identify patterns and trends.</p>
+                <div class="tech-stack">
+                    <span>ARIMA</span>
+                    <span>Prophet</span>
+                    <span>Time Series</span>
+                </div>
+            </div>
+            <div class="forecast-card">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Seasonal Patterns</h3>
+                <p>Account for seasonal variations, holidays, and special events in predictions.</p>
+                <div class="tech-stack">
+                    <span>Seasonal Decomposition</span>
+                    <span>Pattern Recognition</span>
+                    <span>Event Analysis</span>
+                </div>
+            </div>
+            <div class="forecast-card">
+                <i class="fas fa-robot"></i>
+                <h3>AI Learning</h3>
+                <p>Continuous learning from new data to improve prediction accuracy over time.</p>
+                <div class="tech-stack">
+                    <span>Machine Learning</span>
+                    <span>Neural Networks</span>
+                    <span>Adaptive Learning</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@smartkitchenai.com</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 SmartKitchen AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize sales chart
+        const ctx = document.getElementById('salesChart').getContext('2d');
+        const salesChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                datasets: [{
+                    label: 'Actual Sales',
+                    data: [1200, 1900, 1500, 2100, 1800, 2500, 2200],
+                    borderColor: '#4CAF50',
+                    tension: 0.4
+                }, {
+                    label: 'Forecast',
+                    data: [null, null, null, null, null, 2400, 2300],
+                    borderColor: '#2196F3',
+                    borderDash: [5, 5],
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Weekly Sales Forecast'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Sales ($)'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Function to update forecast view
+        function updateForecast(period) {
+            // Simulate API call to get new forecast data
+            const newData = generateForecastData(period);
+            salesChart.data.labels = newData.labels;
+            salesChart.data.datasets[0].data = newData.actual;
+            salesChart.data.datasets[1].data = newData.forecast;
+            salesChart.update();
+        }
+
+        // Function to generate mock forecast data
+        function generateForecastData(period) {
+            const data = {
+                week: {
+                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    actual: [1200, 1900, 1500, 2100, 1800, 2500, 2200],
+                    forecast: [null, null, null, null, null, 2400, 2300]
+                },
+                month: {
+                    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                    actual: [12000, 15000, 14000, 16000],
+                    forecast: [null, null, 14500, 15500]
+                },
+                year: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    actual: [120000, 140000, 130000, 150000, 160000, 170000, 180000, 190000, 180000, 200000, 220000, 210000],
+                    forecast: [null, null, null, null, null, null, null, null, 185000, 195000, 215000, 205000]
+                }
+            };
+            return data[period];
+        }
+
+        // Check if user is logged in
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (currentUser) {
+            document.getElementById('authLinks').style.display = 'none';
+            document.getElementById('profileLink').style.display = 'block';
+        }
+    </script>
+</body>
+</html> 
